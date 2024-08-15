@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Box with animation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  align-items: center;
+  background: linear-gradient(rgb(236, 235, 235),rgb(158, 156, 156));
+  color: #fff;
+  display: flex;
+  font: 30px 'Lato', arial, sans-serif;
+  flex-flow: column nowrap;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.note {
+  font-size: 0.375em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #151119;
+}
+
+#search {
+  align-items: center;
+  background: #dcdade;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 0;
+  padding: 0.5em 0.5em 0.5em 1em;
+  transition: all 0.5s;
+  width: 500px;
+}
+
+#search:hover,
+#search:focus {
+  background: #585757;
+}
+
+#search button,
+#search input {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  outline: 0;
+}
+
+#search button {
+  cursor: pointer;
+  padding: 0 0.25em;
+}
+
+#search input {
+  flex: 1;
+}
+
+#search input::placeholder {
+  color: #fff;
+}
+
+#search .spinner {
+  animation: spinner 1s infinite linear;
+  display: none;
+  padding: 0 0.25em;
+}
+
+#search.loading button {
+  display: none;
+}
+
+#search.loading .spinner {
+  display: block;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+  
+}
+
+    </style>
+  </head>
+  <body>
+   
+    <div id="search">
+      <input id="input" placeholder="Search..." />
+      <button id="button">
+        <i class="fa fa-search"></i>
+      </button>
+      <div class="spinner"><i class="fa fa-spinner"></i></div>
+    </div>
+    <div class="note">Click the button or hit enter.</div>
+    <script src="script.js"></script>
+  </body>
+</html>
